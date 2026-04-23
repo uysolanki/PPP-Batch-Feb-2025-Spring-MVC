@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Welcome to FSD</h1>
+<%-- <h1>Welcome ${celeb}</h1> --%>
+<h1>Welcome ${celeb.pname}</h1>
+<h1>Welcome ${celeb.jno}</h1>
 </body>
 </html>
