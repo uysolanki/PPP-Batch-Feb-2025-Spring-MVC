@@ -1,9 +1,13 @@
 package com.itp.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.itp.model.Player;
 import com.itp.service.PlayerService;
@@ -63,6 +67,40 @@ public class HelloController {
 	
 	@RequestMapping("/player")   //localhost:8080/test
 	public String player(Model model)
+	{		
+		Player p1=playerService.getPlayer();
+		model.addAttribute("player",p1);
+		return "player-card";
+	}
+	
+	@RequestMapping("/players")   //localhost:8080/test
+	public String players(Model model)
+	{		
+		List<Player> players =playerService.getPlayers();
+		model.addAttribute("players",players);
+		return "team-card";
+	}
+	
+	@RequestMapping("/playersUsingModelMap")   //localhost:8080/test
+	public String playersUsingModelMap(ModelMap modelmap)
+	{		
+		List<Player> players =playerService.getPlayers();
+		modelmap.addAttribute("players",players);
+		return "team-card";
+	}
+	
+	@RequestMapping("/playersUsingModelAndView")   //localhost:8080/test
+	public ModelAndView playersUsingModelAndView()
+	{		
+		ModelAndView mav=new ModelAndView();
+		List<Player> players =playerService.getPlayers();
+		mav.setViewName("team-card");
+		mav.addObject("players",players);
+		return mav;
+	}
+	
+	@RequestMapping("/player/{pno}")   //localhost:8080/test
+	public String singlePlayer(Model model)
 	{		
 		Player p1=playerService.getPlayer();
 		model.addAttribute("player",p1);

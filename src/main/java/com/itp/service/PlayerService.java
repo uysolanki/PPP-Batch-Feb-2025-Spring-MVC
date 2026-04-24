@@ -1,5 +1,7 @@
 package com.itp.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,10 @@ public class PlayerService {
 
 	public Player getPlayer() {
 		return playerRepository.getPlayer();
+	}
+
+	public List<Player> getPlayers() {
+		return playerRepository.getPlayers();
 	}
 	
 	
