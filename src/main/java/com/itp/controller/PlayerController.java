@@ -84,7 +84,8 @@ public class PlayerController {
 	public String savePlayer(@ModelAttribute Player player)
 	{		
 		System.out.println("Record inserted for player "+ player.getPname());
-		return "confirm";
+		//return "confirm";
+		return "redirect:/players";
 	}
 
 }
