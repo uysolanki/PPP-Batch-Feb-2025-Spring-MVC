@@ -10,7 +10,7 @@ import com.itp.model.Player;
 @Repository
 public class PlayerRepository {
 	
-	public List<Player> getPlayers()
+	public List<Player> getPlayers()  //hard coded values
 	{
 	List<Player> players=new ArrayList();
 	players.add(new Player(1,"Jasprit Bumrah","https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcTGVGPhePFsP69A-6L2v78ZO7jsApa_aEMruEhzLn2knDthmulf8--iopbk6Ppvv56UPaCCzuHMPrEBnSE","He is widely regarded as the greatest fast bowler of his generation. Bumrah became the first bowler to reach the No. 1 position in the ICC Men's Player Rankings"));
@@ -22,7 +22,8 @@ public class PlayerRepository {
 	return players;
 	}
 
-	public Player getPlayer() {
+	public Player getPlayer()  //hardcoded player
+	{
 		Player p1=new Player(6,"Jassi","https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcTGVGPhePFsP69A-6L2v78ZO7jsApa_aEMruEhzLn2knDthmulf8--iopbk6Ppvv56UPaCCzuHMPrEBnSE","He is widely regarded as the greatest fast bowler of his generation. Bumrah became the first bowler to reach the No. 1 position in the ICC Men's Player Rankings");		
 		return p1;
 	}

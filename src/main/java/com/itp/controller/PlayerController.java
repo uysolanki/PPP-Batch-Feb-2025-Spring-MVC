@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -68,6 +70,21 @@ public class PlayerController {
 		Player p1=playerService.getPlayer();
 		model.addAttribute("player",p1);
 		return "player-card";
+	}
+	
+	@RequestMapping("/addPlayerForm")   //localhost:8080/test
+	public String addPlayerForm(Model model)
+	{		
+		Player p1=new Player();		//empty player object  pname=null info=null image=null
+		model.addAttribute("player",p1);
+		return "add-player-form";
+	}
+	
+	@PostMapping("/savePlayer")   //localhost:8080/test
+	public String savePlayer(@ModelAttribute Player player)
+	{		
+		System.out.println("Record inserted for player "+ player.getPname());
+		return "confirm";
 	}
 
 }
